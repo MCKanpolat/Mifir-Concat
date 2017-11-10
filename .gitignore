@@ -3,10 +3,10 @@
 *.user
 _ReSharper.*/
 *.sdf
-bin/
-obj/
-Debug/
-Release/
+bin
+obj
+Debug
+Release
 StyleCop.Cache
 TestResults
 *.dbmdl
