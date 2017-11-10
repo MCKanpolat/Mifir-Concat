@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mifir.Concat", "src\Concat\Mifir.Concat.csproj", "{5B29DBBE-C36E-402E-8B99-7CE78C42B34B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mifir.Concat.Test", "test\Mifir.Concat.Test\Mifir.Concat.Test.csproj", "{24166472-D28C-4BB6-9748-7B53D61E166D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B29DBBE-C36E-402E-8B99-7CE78C42B34B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B29DBBE-C36E-402E-8B99-7CE78C42B34B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B29DBBE-C36E-402E-8B99-7CE78C42B34B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B29DBBE-C36E-402E-8B99-7CE78C42B34B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24166472-D28C-4BB6-9748-7B53D61E166D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24166472-D28C-4BB6-9748-7B53D61E166D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24166472-D28C-4BB6-9748-7B53D61E166D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24166472-D28C-4BB6-9748-7B53D61E166D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9393E43F-A6A2-4819-9D5D-57B7AF29B998}
+	EndGlobalSection
+EndGlobal
