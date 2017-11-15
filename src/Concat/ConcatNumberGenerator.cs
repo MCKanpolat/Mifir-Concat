@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Mifir.Concat
 {
@@ -130,36 +131,29 @@ namespace Mifir.Concat
         private string CharacterRewrite(string input)
         {
             // Apply the A-Z untouched, apply charactermap, any other char is deleted
-
             var control = input.ToUpperInvariant();
-            var newInput = new char[input.Length];
+            var result = new StringBuilder(string.Empty);
 
-            var i = 0;
             foreach (char c in control)
             {
                 char? valid = null;
-
-                if ((char.ToUpperInvariant(c) >= 'A' && char.ToUpperInvariant(c) <= 'z'))
+                if ((char.ToUpperInvariant(c) >= 'A' && char.ToUpperInvariant(c) <= 'Z'))
                 {
                     valid = c;
                 }
                 else
                 {
                     var unicode = Convert.ToInt32(c);
-                    var checkCharacter = _concatCharMap.Where(x => x.Value.Contains(unicode))
-                        .Select(x => x.Key)
-                        .FirstOrDefault();
+                    var checkCharacter = _concatCharMap.Where(x => x.Value.Contains(unicode));
 
-                    if (checkCharacter != default(char))
-                        valid = checkCharacter;
+                    if (checkCharacter.Any())
+                        valid = checkCharacter.First().Key;
                 }
 
                 if (!valid.HasValue) continue;
-                newInput[i] = (char)valid;
-                i++;
+                result.Append((char)valid);
             }
-
-            return new string(newInput);
+            return result.ToString();
         }
 
         private string CapAndPad(string input)

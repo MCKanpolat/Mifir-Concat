@@ -50,7 +50,9 @@ namespace Mifir.Concat.Test
         [TestMethod]
         public void Verify_Expected()
         {
-            ConcatTester("NO", "19801224", "Jon", "Snow", "NO19801224JON##SNOW#");
+            ConcatTester("NO", "19801224", "1Jon", "Snow", "NO19801224JON##SNOW#");
+            ConcatTester("NO", "19801224", "!Jon", "Snow", "NO19801224JON##SNOW#");
+            ConcatTester("NO", "19801224", "Jon", "?Snow", "NO19801224JON##SNOW#");
             ConcatTester("GB", "19800122", "Sir Jon", "Snow", "GB19800122JON##SNOW#");
             ConcatTester("US", "19800502", "Dr. Robert", "Ford", "US19800502ROBERFORD#");
             ConcatTester("NO", "19801224", "Jon", "Snow", "NO19801224JON##SNOW#");
