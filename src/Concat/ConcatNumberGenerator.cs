@@ -17,8 +17,7 @@ namespace Mifir.Concat
         {
             "AM", "AUF", "D", "DA", "DE", "DEL", "DI", "DO", "DOS", "DU", "IM", "LA",
             "LE", "MAC", "MC", "MHAC", "MHÍC", "MIC", "NI", "NÍ", "NÍC",
-            "O", "Ó", "UA", "UI", "UÍ", "VAN", "VOM",
-            "VON", "VON", "DEN"
+            "O", "Ó", "UA", "UI", "UÍ", "VAN", "VOM", "VON", "DEN"
         };
 
         private static readonly string[] _ccalpha2 =
@@ -49,7 +48,7 @@ namespace Mifir.Concat
         {
             "ATTY", "COACH", "DAME", "DR", "FR", "GOV", "HONORABLE",
             "MADAM", "MADAME", "MAID", "MASTER", "MISS", "MONSIEUR", "MR", "MRS", "MS",
-            "MX", "OFC", "PH.D", "PRES", "PROF", "REV", "SIR"
+            "MX", "OFC", "PHD", "PRES", "PROF", "REV", "SIR"
         };
 
         readonly static Dictionary<char, Int32[]> _concatCharMap = new Dictionary<char, Int32[]>
@@ -196,7 +195,7 @@ namespace Mifir.Concat
             // if firstanme contains more names like "Erwin Rudolf Josef Alexander", split
             // on " " to separate first names. This seems in alignment with specifications
             // that emphasis "first name".
-            firstName = firstName.Split(' ')[0];
+            firstName = firstName.Trim().Split(' ')[0];
             firstName = firstName.Trim().Replace(" ", "");
             lastName = lastName.Trim().Replace(" ", "");
 
