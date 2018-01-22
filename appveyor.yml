@@ -17,6 +17,7 @@ init:
 before_build:
 - cmd: nuget restore
 build:
+  project: src\Concat\Mifir.Concat.csproj
   publish_nuget: true
   include_nuget_references: true
   verbosity: minimal
