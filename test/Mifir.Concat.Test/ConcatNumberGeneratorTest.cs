@@ -1,11 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Globalization;
+using Xunit;
 
 namespace Mifir.Concat.Test
 {
 
-    [TestClass]
     public class ConcatNumberGeneratorTest
     {
         private readonly IConcatNumberGenerator _instance;
@@ -14,7 +13,7 @@ namespace Mifir.Concat.Test
             _instance = new ConcatNumberGenerator();
         }
 
-        public void ConcatTester(string countryCode, string birthDate, string firstName, string lastName,
+        private void ConcatTester(string countryCode, string birthDate, string firstName, string lastName,
             string expected)
         {
             var result = _instance.Generate(new ClientInformation(countryCode: countryCode,
@@ -22,32 +21,29 @@ namespace Mifir.Concat.Test
                     firstname: firstName,
                     surname: lastName));
 
-            Assert.AreEqual(expected, result);
+            Assert.Equal(expected, result);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(CountryCodeInvalidException))]
+        [Fact]
         public void Check_CountryCode_Invalid()
         {
-            ConcatTester("NX", "19801224", "Mr Jon", "Anderson", "");
+            Assert.Throws<CountryCodeInvalidException>(() => ConcatTester("NX", "19801224", "Mr Jon", "Anderson", ""));
         }
 
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [Fact]
         public void Check_Argument_Exception_FirstName()
         {
-            ConcatTester("NO", "19801224", "", "Snow", "");
+            Assert.Throws<ArgumentException>(() => ConcatTester("NO", "19801224", "", "Snow", ""));
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [Fact]
         public void Check_Argument_Exception_Surname()
         {
-            ConcatTester("NO", "19801224", "John", "", "");
+            Assert.Throws<ArgumentException>(() => ConcatTester("NO", "19801224", "John", "", ""));
         }
 
-        [TestMethod]
+        [Fact]
         public void Verify_Expected()
         {
             ConcatTester("NO", "19801224", "1Jon", "Snow", "NO19801224JON##SNOW#");
@@ -59,7 +55,7 @@ namespace Mifir.Concat.Test
             ConcatTester("US", "19800502", "Dr. Robert", "Ford", "US19800502ROBERFORD#");
         }
 
-        [TestMethod]
+        [Fact]
         public void Verify_Remove_Prefix()
         {
             ConcatTester("NO", "19801224", "DE L’ Jon", "Snow", "NO19801224JON##SNOW#");
@@ -141,7 +137,7 @@ namespace Mifir.Concat.Test
             ConcatTester("NO", "19801224", "den Jon", "Snow", "NO19801224JON##SNOW#");
         }
 
-        [TestMethod]
+        [Fact]
         public void Verify_Remove_Titles()
         {
             ConcatTester("US", "19800502", "ATTY Robert", "Ford", "US19800502ROBERFORD#");
@@ -193,7 +189,7 @@ namespace Mifir.Concat.Test
         }
 
         // Verify ESMA Guideline examples
-        [TestMethod]
+        [Fact]
         public void Verify_ESMA_Guideline()
         {
             /* John O'Brian  */
@@ -218,7 +214,7 @@ namespace Mifir.Concat.Test
 
 
         // Verify ESMA Guideline examples
-        [TestMethod]
+        [Fact]
         public void Verify_Guideline_Examples()
         {
             // Sean Murphy

@@ -16,3 +16,11 @@ deploy:
   api_key:
     secure: bntYUbKetr7QNS4OclxF0hv/ff5Sy9/U8pXZcpqG5pvFQmQJB3Qj80O+82V2YrGe
   skip_symbols: true
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
