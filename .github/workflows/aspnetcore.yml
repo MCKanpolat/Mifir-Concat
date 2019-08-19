@@ -15,7 +15,5 @@ jobs:
         dotnet-version: 2.2.108
     - name: Build and Pack with dotnet
       run: dotnet pack --configuration Release
-    - name: Add Nuget Source
-      run: nuget source Add -Name "GitHub" -Source "https://nuget.pkg.github.com/MCKanpolat/Mifir-Concat/index.json" -UserName MCKanpolat
     - name: Push Nuget Source
-      run: nuget push "mifir-concat.1.0.0.nupkg" -Source "GitHub"
+      run: dotnet nuget push "mifir-concat.1.0.0.nupkg"  -s "https://nuget.pkg.github.com/MCKanpolat/Mifir-Concat/index.json"
