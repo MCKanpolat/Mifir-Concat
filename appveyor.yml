@@ -3,7 +3,6 @@ skip_non_tags: true
 skip_branch_with_pr: true
 image: Visual Studio 2017
 configuration: Release
-platform: Any CPU
 init:
 - ps: >-
     if ($env:APPVEYOR_REPO_TAG -eq "true")
@@ -14,6 +13,7 @@ dotnet_csproj:
   patch: true
   file: '**\Mifir.Concat.csproj'
   version: '{version}'
+  version_prefix: '{version}'
   package_version: '{version}'
   assembly_version: '{version}'
   file_version: '{version}'
